@@ -4,20 +4,22 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         Quiz quiz = new Quiz();
+        String user_input = quiz.getUserInput();
+
         String question = "";
         String answer = "";
 
-        ArrayList<String> states = new ArrayList<>();
+        ArrayList<String> states = new ArrayList<>();//all the states
 
-        ArrayList<String> capitals = new ArrayList<>();
+        ArrayList<String> capitals = new ArrayList<>(); // all the capitals
 
-        ArrayList<String> questions = quiz.getQuestions();
+        ArrayList<String> questions = quiz.getQuestions(); // all the questions
 
-        ArrayList<String> answers = quiz.getAnswers();
+        ArrayList<String> answers = quiz.getAnswers(); // all the answers
 
-        Map<String, String> question_answer = quiz.getMap();
+        Map<String, String> question_answer = quiz.getMap(); //map that has state and capital in a key value pair
 
-        State state1 = new State("Georgia", "Atlanta ");
+        State state1 = new State("Georgia", "Atlanta "); //test states
         State state2 = new State("New york", "New jersey");
 
         question_answer.put(state1.getName(), state1.getCapital());
@@ -27,16 +29,13 @@ public class Main {
         System.out.println("Map out-puted directly");
         System.out.println(question_answer);
 
+        /* Generate game values/ strings  according to map*/
+
         for ( String key : question_answer.keySet() ) {
             states.add(key);
             capitals.add(question_answer.get(key));
             questions.add(quiz.generateQuestion(key));
             answers.add(quiz.generateAnswer(key, question_answer.get(key)));
-
-
-           // questions.add(quiz.generateAnswer(key, question_answer(key)));
-
-
         }
         System.out.println("State out-puted directly");
         System.out.println(states);
@@ -54,7 +53,7 @@ public class Main {
         System.out.println(questions.get(0));
         System.out.println(answers.get(0));
 
-        System.out.println("Testing econd question");
+        System.out.println("Testing second question");
         System.out.println(questions.get(1));
         System.out.println(answers.get(1));
 
