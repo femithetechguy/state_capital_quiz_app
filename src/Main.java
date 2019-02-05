@@ -1,3 +1,7 @@
+
+
+
+
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -37,7 +41,7 @@ public class Main {
             questions.add(quiz.generateQuestion(key));
             answers.add(quiz.generateAnswer(key, question_answer.get(key)));
         }
-        System.out.println("State out-puted directly");
+        System.out.println("model.User.State out-puted directly");
         System.out.println(states);
 
         System.out.println("Capitals out-puted directly");
