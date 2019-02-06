@@ -1,3 +1,4 @@
+import javax.xml.xpath.XPathConstants;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -60,4 +61,10 @@ public class Quiz {
     public ArrayList<String> getAnswers() {
         return this.answers;
     }
+
+
+    public void parseXMLFile(){
+
+        }
+
 }
