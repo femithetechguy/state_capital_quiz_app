@@ -5,17 +5,22 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         Quiz quiz = new Quiz();
+        State st = new State();
+
         String user_input = quiz.getUserInput();
 
         String question = "";
         String answer = "";
         Random rand = new Random();
-        State st = new State();
 
         int random;
 
         ArrayList<String> states = new ArrayList<>();//all the states
         ArrayList<String> capitals = new ArrayList<>(); // all the capitals
+        ArrayList<String> questions;//all the states
+        ArrayList<String> answers ; // all the capitals
+        Map<String, String> state_and_capital;
+        Map<String, String> question_and_answer;
 
 
         try {
@@ -26,13 +31,19 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("New state: " + states);
+
         System.out.println("New capitals: " + capitals);
 
-        ArrayList<String> questions = quiz.getQuestions(); // all the questions
 
-        ArrayList<String> answers = quiz.getAnswers(); // all the answers
 
-        Map<String, String> question_answer = quiz.getMap(); //map that has state and capital in a key value pair
+
+        questions = quiz.getQuestions(); // all the questions
+
+        answers = quiz.getAnswers(); // all the answers
+
+        state_and_capital = quiz.getState_and_capital(); //map that has state and capital in a key value pair
+        question_and_answer = quiz.getQuestion_answer(); //map that has state and capital in a key value pair
+
         //check size of both array before creating a map
 
         int stateSize = states.size();
@@ -40,17 +51,46 @@ public class Main {
         int questionSize = 0;
         if (stateSize == capitalSize)
             questionSize = stateSize = capitalSize; // make sure the sized are same for stae, capital and the question generated from them
+        else
+            questionSize = 0;
+        for (int i =0; i < questionSize; i++){
+            state_and_capital.put(states.get(i), capitals.get(i));
+
+       }
 
         for (int i =0; i < questionSize; i++){
-            question_answer.put(states.get(i), capitals.get(i));
+            state_and_capital.put(states.get(i), capitals.get(i));
+
         }
+
+
         //print the new map to see if all states and capitals have been well mapped.
 
         System.out.println("State and Captial map");
-        for (Map.Entry entry : question_answer.entrySet())
+        for (Map.Entry entry : state_and_capital.entrySet())
         {
             System.out.println("State: " + entry.getKey() + "|| Capital: " + entry.getValue());
         }
+
+        System.out.println("State size: " + states.size() );
+        System.out.println("Capital size: " + capitals.size() );
+
+        //add all states and capitals into question
+        for (int i =0; i < questionSize; i++){
+            question = quiz.generateQuestion(states.get(i));
+            answer = quiz.generateAnswer(states.get(i), capitals.get(i));
+            question_and_answer.put(question, answer);
+        }
+
+        System.out.println("Questions and Answers");
+        for (Map.Entry entry : question_and_answer.entrySet())
+        {
+            System.out.println("Question: " + entry.getKey() + "\nAnswer: " + entry.getValue());
+        }
+
+        System.out.println("Question size: " + states.size() );
+        System.out.println("Answer size: " + capitals.size() );
+
 
     }
 }

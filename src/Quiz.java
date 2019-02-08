@@ -1,70 +1,65 @@
-import javax.xml.xpath.XPathConstants;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Quiz {
-   // private String question, answer;
+    // private String question, answer;
     //private boolean playMode;
     String userInput;
+    Map<String, String> state_and_capital;
     private Map<String, String> question_answer;
-    private ArrayList<String> questions;
-    private ArrayList<String> answers;
-
-
+    private final ArrayList<String> questions;
+    private final ArrayList<String> answers;
 
     public Quiz() {
-
-        this.question_answer = new LinkedHashMap<>();
-        this.questions = new ArrayList<>();
-        this.answers = new ArrayList<>();
+        question_answer = new LinkedHashMap<>();
+        questions = new ArrayList<>();
+        answers = new ArrayList<>();
+        question_answer = new LinkedHashMap<>();
+        state_and_capital = new LinkedHashMap<>();
     }
 
-    public void readXML(){
-
+    public void readXML() {
     }
-    public String generateQuestion(String state){
+
+    public String generateQuestion(final String state) {
         return "What is the captial of " + state + "?";
-
-    }
-    public String generateAnswer(String q, String a){
-        return "The capital of " + q + " is " + a ;
-
     }
 
-    public void checkAnswer(String answer){
-        if (this.userInput.equals(answer))
+    public String generateAnswer(final String state, final String capital) {
+        return "The capital of " + state + " is " + capital;
+    }
+
+    public void checkAnswer(final String answer) {
+        if (userInput.equals(answer))
             System.out.println("Correct");
         else
             System.out.println("Incorrect");
-
     }
-    public void generateScore(){
 
+    public void generateScore() {
     }
-    public void returncorrectAnwers(){
 
+    public void returncorrectAnwers() {
     }
 
     public String getUserInput() {
-        return this.userInput;
-    }
-
-    public Map getMap() {
-        return this.question_answer;
+        return userInput;
     }
 
     public ArrayList<String> getQuestions() {
-        return this.questions;
+        return questions;
     }
 
     public ArrayList<String> getAnswers() {
-        return this.answers;
+        return answers;
     }
 
+    public Map<String, String> getState_and_capital() {
+        return state_and_capital;
+    }
 
-    public void parseXMLFile(){
-
-        }
-
+    public Map<String, String> getQuestion_answer() {
+        return question_answer;
+    }
 }
