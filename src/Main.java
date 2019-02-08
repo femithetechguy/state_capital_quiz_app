@@ -19,8 +19,8 @@ public class Main {
 
 
         try {
-            states = st.getAllStates();//store all sates
-            capitals = st.getAllCapitals();// store all capitals
+            states = st.getAllExpressionInstance("//state");//store all states
+            capitals = st.getAllExpressionInstance("//capital");// store all capitals
 
         } catch (Exception e) {
             e.printStackTrace();
