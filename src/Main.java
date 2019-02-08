@@ -19,23 +19,38 @@ public class Main {
 
 
         try {
-            states = st.getAllStates();
-            capitals = st.getAllCapitals();
+            states = st.getAllStates();//store all sates
+            capitals = st.getAllCapitals();// store all capitals
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("New state: " + states.toString());
-        System.out.println("New capitals: " + capitals.toString());
+        System.out.println("New state: " + states);
+        System.out.println("New capitals: " + capitals);
 
         ArrayList<String> questions = quiz.getQuestions(); // all the questions
 
         ArrayList<String> answers = quiz.getAnswers(); // all the answers
 
         Map<String, String> question_answer = quiz.getMap(); //map that has state and capital in a key value pair
+        //check size of both array before creating a map
 
+        int stateSize = states.size();
+        int capitalSize = capitals.size();
+        int questionSize = 0;
+        if (stateSize == capitalSize)
+            questionSize = stateSize = capitalSize; // make sure the sized are same for stae, capital and the question generated from them
 
+        for (int i =0; i < questionSize; i++){
+            question_answer.put(states.get(i), capitals.get(i));
+        }
+        //print the new map to see if all states and capitals have been well mapped.
 
+        System.out.println("State and Captial map");
+        for (Map.Entry entry : question_answer.entrySet())
+        {
+            System.out.println("State: " + entry.getKey() + "|| Capital: " + entry.getValue());
+        }
 
     }
 }
