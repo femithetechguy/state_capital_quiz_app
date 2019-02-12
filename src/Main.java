@@ -17,8 +17,8 @@ public class Main {
 
         ArrayList<String> states = new ArrayList<>();//all the states
         ArrayList<String> capitals = new ArrayList<>(); // all the capitals
-        ArrayList<String> questions;//all the states
-        ArrayList<String> answers ; // all the capitals
+        ArrayList<String> questions;//all the questions
+        ArrayList<String> answers ; // all the answers
         Map<String, String> state_and_capital;
         Map<String, String> question_and_answer;
 
@@ -69,7 +69,7 @@ public class Main {
         System.out.println("State and Captial map");
         for (Map.Entry entry : state_and_capital.entrySet())
         {
-            System.out.println("State: " + entry.getKey() + "|| Capital: " + entry.getValue());
+          //  System.out.println("State: " + entry.getKey() + "|| Capital: " + entry.getValue());
         }
 
         System.out.println("State size: " + states.size() );
@@ -77,7 +77,8 @@ public class Main {
 
         //add all states and capitals into question
         for (int i =0; i < questionSize; i++){
-            question = quiz.generateQuestion(states.get(i));
+            question = quiz.generateQuestion(states, capitals, i);
+            //System.out.println(question);
             answer = quiz.generateAnswer(states.get(i), capitals.get(i));
             question_and_answer.put(question, answer);
         }
@@ -85,12 +86,20 @@ public class Main {
         System.out.println("Questions and Answers");
         for (Map.Entry entry : question_and_answer.entrySet())
         {
-            System.out.println("Question: " + entry.getKey() + "\nAnswer: " + entry.getValue());
+         //   System.out.println("Question: " + entry.getKey() + "\nAnswer: " + entry.getValue());
         }
 
         System.out.println("Question size: " + states.size() );
         System.out.println("Answer size: " + capitals.size() );
 
+        ArrayList<ArrayList<String>> qa = new ArrayList<>();
+
+
+       // answers = quiz.getContentOfMap(question_and_answer).get(1);
+
+        System.out.println("Questions alone");
+        System.out.println(quiz.generateQuestion(states, capitals, 45));
+        System.out.println(states.indexOf("Washington"));
 
     }
 }
