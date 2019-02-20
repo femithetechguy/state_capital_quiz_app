@@ -24,7 +24,7 @@ public class State {
     public ArrayList<String> getAllExpressionInstance(final String expression) throws Exception { //get any item you want from the xml file by specifying the head tag name for that item.
         expressions = new ArrayList<String>();
         final XPath xpath = XPathFactory.newInstance().newXPath();
-        final File file = new File("C:\\Users\\adefe\\OneDrive - Georgia Gwinnett College\\Document\\School\\Ggc\\Spring_2019\\ITEC_4260_SoftTesting\\project\\state_capital_quiz_app\\state_capital.xml");
+        final File file = new File("state_capital.xml");
         final FileInputStream stream = new FileInputStream(file);
         final InputSource source = new InputSource(stream);
         final XPathExpression expression_expr = xpath.compile(expression); // expression
