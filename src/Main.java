@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Quiz quiz = new Quiz();
         State st = new State();
-        String user_input = quiz.getUserInput();
+       // String user_input = quiz.getUserInput();
         String question = "";
         String answer = "";
         Random rand = new Random();
@@ -64,10 +64,14 @@ public class Main {
         System.out.println("Answer size: " + capitals.size());
         ArrayList<ArrayList<String>> qa = new ArrayList<>();
         // answers = quiz.getContentOfMap(question_and_answer).get(1);
-        for (int i = 0; i < states.size(); i++) {
-            System.out.println("Question No. " + i);
-            System.out.println(quiz.generateQuestion(states, capitals, i));
-            System.out.println("Answer for question No. " + i);
+        for (int i = 0; i < 50; i++) {
+            int count = i++;
+            questions.add(quiz.generateQuestion(states, capitals, count));
+            System.out.println("Question No. " + count);
+
+            //System.out.println(quiz.generateQuestion(states, capitals, i));
+            System.out.println(questions.get(i));
+            System.out.println("Answer for question No. " + count);
             System.out.println(quiz.generateAnswer());
         }
         //  System.out.println(answer);

@@ -5,7 +5,7 @@ public class Quiz {
     private String userInput;
     Map<String, String> state_and_capital;
     private Map<String, String> question_answer;
-    private final ArrayList<String> questions;
+    private  ArrayList<String> questions;
     private final ArrayList<String> answers;
     private String correctAnswer;
     private String state;
@@ -65,19 +65,23 @@ public class Quiz {
         }
         return answer;
     }
-    public void checkAnswer(final String answer) {
-        if (userInput.equals(answer))
+    public void checkAnswer(final String userInput) {
+        if (userInput.equals(correctAnswer))
             System.out.println("Correct");
         else
             System.out.println("Incorrect");
     }
-    public void generateScore() {
-        }
-        public void returncorrectAnwers() {
-        }
-        public String getUserInput() {
-            return userInput;
+    public int generateScore(String userInput , String correctAnswer) {
+        int score = 0;
+        if (isCorrect(userInput, correctAnswer))
+            score += 1;
+
+        return score;
     }
+        public boolean isCorrect(String userInput, String correctAnswer){
+            return userInput.equals(correctAnswer);
+        }
+
     public ArrayList<String> getQuestions() {
         return questions;
     }
