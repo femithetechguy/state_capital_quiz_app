@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added XPath code to read the NodeList into an ArraList instead of rwading such as individual nodes.">
-      <change afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/state_capital_quiz_app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/state_capital_quiz_app/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/state_capital_quiz_app/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/state_capital_quiz_app/Quiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/state_capital_quiz_app/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/state_capital_quiz_app/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1768">
-              <caret line="104" column="43" lean-forward="true" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
+            <state relative-caret-position="62">
+              <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -283,7 +276,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550695119158" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550695365859" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -456,7 +449,7 @@
       <workItem from="1550073594346" duration="339000" />
       <workItem from="1550090663225" duration="2369000" />
       <workItem from="1550523134579" duration="9774000" />
-      <workItem from="1550694666530" duration="440000" />
+      <workItem from="1550694666530" duration="696000" />
     </task>
     <task id="LOCAL-00001" summary="Added XPath code to read the NodeList into an ArraList instead of rwading such as individual nodes.">
       <created>1549585361481</created>
@@ -469,11 +462,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53024000" />
+    <option name="totallyTimeSpent" value="53280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1087" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2571116" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -484,7 +476,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32791877" />
-      <window_info anchor="bottom" x="0" y="321" width="1920" height="438" id="Run" order="2" type="WINDOWED" weight="0.45530146" />
+      <window_info anchor="bottom" x="0" y="321" width="1920" height="438" id="Run" order="2" type="WINDOWED" visible="true" weight="0.45530146" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5451713" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -498,7 +490,7 @@
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32330826" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="bottom" id="Terminal" order="16" weight="0.14500538" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="16" visible="true" weight="0.14500538" />
       <window_info anchor="bottom" id="Duplicate detector" order="17" weight="0.32690355" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -690,8 +682,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="104" column="43" lean-forward="true" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
+        <state relative-caret-position="62">
+          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
