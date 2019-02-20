@@ -59,7 +59,7 @@ public class Main {
             System.out.println(questions.get(choice[questionIndex]));
 
             userInput = scanner.next();
-            System.out.println(answerCharacters.get(choice[questionIndex]));
+           // System.out.println(answerCharacters.get(choice[questionIndex]));
             questionIndex++;
                
         }
