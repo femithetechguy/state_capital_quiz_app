@@ -1,81 +1,124 @@
+
+
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-        Quiz quiz = new Quiz();
+
+
+
+    public static void main(String [] args) {
+       Quiz quiz = new Quiz();
         State st = new State();
-       // String user_input = quiz.getUserInput();
+        Player player = new Player();
+        int seed = 0 ;
+        int maxQuestions;
+
         String question = "";
-        String answer = "";
-        Random rand = new Random();
-        int random;
+
         ArrayList<String> states = new ArrayList<>();//all the states
         ArrayList<String> capitals = new ArrayList<>(); // all the capitals
-        ArrayList<String> questions;//all the questions
-        ArrayList<String> answers; // all the answers
-        Map<String, String> state_and_capital;
+
+
+        ArrayList<String> questions = new ArrayList<>();//all the questions
+        ArrayList<String> answerCapitals = new ArrayList<>();; // all the answers
+        ArrayList<Character> answerCharacters = new ArrayList<>(); // all thecharacters that matched the right anser;
+
+
         Map<String, String> question_and_answer;
+
+
+
         try {
             states = st.getAllExpressionInstance("//state");//store all states
             capitals = st.getAllExpressionInstance("//capital");// store all capitals
+            if (states.size() == capitals.size()) //ensure that you have same number of item in state and capital
+                seed = states.size();
+            else {
+                seed = 0;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("New state: " + states);
-        System.out.println("New capitals: " + capitals);
-        questions = quiz.getQuestions(); // all the questions
-        answers = quiz.getAnswers(); // all the answers
-        state_and_capital = quiz.getState_and_capital(); //map that has state and capital in a key value pair
-        question_and_answer = quiz.getQuestion_answer(); //map that has state and capital in a key value pair
-        //check size of both array before creating a map
-        int stateSize = states.size();
-        int capitalSize = capitals.size();
-        int questionSize = 0;
-        if (stateSize == capitalSize)
-            questionSize = stateSize = capitalSize; // make sure the sized are same for stae, capital and the question generated from them
-        else
-            questionSize = 0;
-        for (int i = 0; i < questionSize; i++) {
-            state_and_capital.put(states.get(i), capitals.get(i));
-        }
-        for (int i = 0; i < questionSize; i++) {
-            state_and_capital.put(states.get(i), capitals.get(i));
-        }
-        //print the new map to see if all states and capitals have been well mapped.
-        System.out.println("State and Captial map");
-        for (Map.Entry entry : state_and_capital.entrySet()) {
-            //  System.out.println("State: " + entry.getKey() + "|| Capital: " + entry.getValue());
-        }
-        System.out.println("State size: " + states.size());
-        System.out.println("Capital size: " + capitals.size());
-        //add all states and capitals into question
-        for (int i = 0; i < questionSize; i++) {
-            question = quiz.generateQuestion(states, capitals, i);
-            //System.out.println(question);
-            // answer = quiz.generateAnswer();
-            question_and_answer.put(question, answer);
-        }
-        System.out.println("Questions and Answers");
-        for (Map.Entry entry : question_and_answer.entrySet()) {
-            //   System.out.println("Question: " + entry.getKey() + "\nAnswer: " + entry.getValue());
-        }
-        System.out.println("Question size: " + states.size());
-        System.out.println("Answer size: " + capitals.size());
-        ArrayList<ArrayList<String>> qa = new ArrayList<>();
-        // answers = quiz.getContentOfMap(question_and_answer).get(1);
-        for (int i = 0; i < 50; i++) {
-            int count = i++;
-            questions.add(quiz.generateQuestion(states, capitals, count));
-            System.out.println("Question No. " + count);
+        //System.out.println(seed);
 
-            //System.out.println(quiz.generateQuestion(states, capitals, i));
-            System.out.println(questions.get(i));
-            System.out.println("Answer for question No. " + count);
-            System.out.println(quiz.generateAnswer());
+        //System.out.println("STATE" + "           ==        " +  "CAPITAL");
+        for(int i = 0; i < seed; i++) {
+            //System.out.println("State:" +  states.get(i) + ", Capital:" +  capitals.get(i));
         }
-        //  System.out.println(answer);
-        //System.out.println(quiz.getState());
-        // System.out.println(quiz.getState());
+        answerCharacters = quiz.getCorrectAnswerChar(); //get all the correct answer
+        for (int i = 0; i < seed; i++) {
+            question = quiz.generateQuestion(states, capitals, i);
+            questions.add(question);
+            String correctCapital = quiz.getCorrectCapital();
+            answerCapitals.add(correctCapital);
+
+
+
+
+            //Collections.shuffle(questions);
+
+            // answer = quiz.generateAnswer();
+            // question_and_answer.put(question, answer);
+
+        }
+        //System.out.println(questions.get(0) );
+        // System.out.println(answers.get(2));
+
+
+        Scanner scanner = new Scanner(System.in);
+
+
+        //System.out.println(questions.get(0) );
+        //for (int i = 0; i < 50; i++) {
+        //System.out.println("Question : " + (i+1));
+        //System.out.println(questions.get(i));
+        //  System.out.println(answerCapitals.get(i));
+
+        // 	System.out.println(answerCharacters.get(i));
+        //}
+        //System.out.println(answerCharacters.size());
+        //System.out.println(answerCharacters);
+        //System.out.println(answerCharacters.indexOf('a'));
+        //System.out.println(answerCharacters.lastIndexOf('a'));
+        //System.out.println(answerCharacters.indexOf('b'));
+        // System.out.println(answerCharacters.lastIndexOf('b'));
+
+        maxQuestions = 10;
+        String userInput = "";
+        int questionIndex = 0;
+        System.out.print("***********Welcome to our game***********\n");
+        do {
+
+            System.out.println("---Question " + ( questionIndex + 1)+"---");
+
+            System.out.println(questions.get(questionIndex ));
+            System.out.println(answerCapitals.get(questionIndex ));
+            System.out.println(answerCharacters.get(questionIndex ));
+
+
+            // Displaying a message on the screen
+            // System.out.println(questions.get(0));
+
+            userInput = scanner.next();
+            System.out.println("You enetered: " + userInput);
+            questionIndex++;
+            userInput = "";
+        } while( questionIndex < maxQuestions ) ;
+
+        System.out.println(questionIndex  + " Questions have been asked");
+        System.out.println(questionIndex  + " Would you like to continue? ");
+        userInput = scanner.next();
+        if (userInput.equals("y"))
+            questionIndex = 0;
+
+
     }
+
+
+
+
 }
+
+

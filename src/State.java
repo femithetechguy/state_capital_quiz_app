@@ -1,3 +1,4 @@
+
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import javax.xml.xpath.XPath;
@@ -9,21 +10,21 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 
 public class State {
-    private ArrayList expressions;
+    private ArrayList<String> expressions;
 
     public State() {
     }
 
     public State(final String name, final String capital) {
-        this.expressions = new ArrayList();
+        this.expressions = new ArrayList<String>();
     }
 
 
 
     public ArrayList<String> getAllExpressionInstance(final String expression) throws Exception { //get any item you want from the xml file by specifying the head tag name for that item.
-        expressions = new ArrayList();
+        expressions = new ArrayList<String>();
         final XPath xpath = XPathFactory.newInstance().newXPath();
-        final File file = new File("state_capital.xml");
+        final File file = new File("C:\\Users\\adefe\\OneDrive - Georgia Gwinnett College\\Document\\School\\Ggc\\Spring_2019\\ITEC_4260_SoftTesting\\project\\state_capital_quiz_app\\state_capital.xml");
         final FileInputStream stream = new FileInputStream(file);
         final InputSource source = new InputSource(stream);
         final XPathExpression expression_expr = xpath.compile(expression); // expression
@@ -35,3 +36,4 @@ public class State {
         return this.expressions;
     }
 }
+
