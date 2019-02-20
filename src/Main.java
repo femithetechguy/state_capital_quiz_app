@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Main {
         ArrayList<String> capitals = new ArrayList<>(); // all the capitals
         ArrayList<String> questions = new ArrayList<>();//all the questions
         ArrayList<String> answerCapitals = new ArrayList<>();
+        int [] choice = generateRandom(50);
         ; // all the answers
         ArrayList<Character> answerCharacters = new ArrayList<>(); // all thecharacters that matched the right anser;
         Map<String, String> question_and_answer;
@@ -38,48 +40,46 @@ public class Main {
             questions.add(question);
             String correctCapital = quiz.getCorrectCapital();
             answerCapitals.add(correctCapital);
-            //Collections.shuffle(questions);
-            // answer = quiz.generateAnswer();
-            // question_and_answer.put(question, answer);
         }
-        //System.out.println(questions.get(0) );
-        // System.out.println(answers.get(2));
+
+        
         Scanner scanner = new Scanner(System.in);
-        //System.out.println(questions.get(0) );
-        //for (int i = 0; i < 50; i++) {
-        //System.out.println("Question : " + (i+1));
-        //System.out.println(questions.get(i));
-        //  System.out.println(answerCapitals.get(i));
-        // 	System.out.println(answerCharacters.get(i));
-        //}
-        //System.out.println(answerCharacters.size());
-        //System.out.println(answerCharacters);
-        //System.out.println(answerCharacters.indexOf('a'));
-        //System.out.println(answerCharacters.lastIndexOf('a'));
-        //System.out.println(answerCharacters.indexOf('b'));
-        // System.out.println(answerCharacters.lastIndexOf('b'));
         maxQuestions = 10;
         String userInput = "";
-        int questionIndex = 1;
-        System.out.print("***********Welcome to our game***********\n");
-        System.out.println("-------Question " + (questionIndex + 1) + "-------");
-        System.out.println(questions.get(questionIndex));
-        //System.out.println(answerCapitals.get(questionIndex ));
-        System.out.println(answerCharacters.get(questionIndex));
-        userInput = scanner.next();
-        // Displaying a message on the screen
-        // System.out.println(questions.get(0));
-        //System.out.println("You enetered: " + userInput);
-        userInput = "";
-        while (!(questionIndex > maxQuestions) || !(userInput.equalsIgnoreCase("N"))) {
-            questionIndex++;
-            System.out.println("-------Question " + (questionIndex + 1) + "-------");
-            System.out.println(questions.get(questionIndex));
-            //System.out.println(answerCapitals.get(questionIndex ));
-            System.out.println(answerCharacters.get(questionIndex));
+        int questionIndex = 0;
+        boolean isCorrect;
+        System.out.println("----WELCOME------");
+        for (int i = 0; i < choice.length; i++)
+        {
+            //System.out.println(generateRandom(50));
+           // System.out.println(choice[i]);
         }
-        System.out.println(questionIndex + " Questions have been asked");
-        System.out.println(questionIndex + " Would you like to continue?: \nPlease select N or Y");
-        userInput = scanner.next();
+        do {
+            System.out.println("Question " + (questionIndex + 1));
+            System.out.println(questions.get(choice[questionIndex]));
+
+            userInput = scanner.next();
+            System.out.println(answerCharacters.get(choice[questionIndex]));
+            questionIndex++;
+               
+        }
+        while(questionIndex < 10);
+        if(userInput.equalsIgnoreCase("y")){
+            
+        }
+        
+      
+    }
+    public static int[] generateRandom(int peak){
+        int [] choice = new int[peak];
+        Random random = new Random();
+        //obtain from 0 - peak
+         ;
+         for (int i =0; i < peak; i++){
+             int number = random.nextInt(peak);
+             choice[i] = number;
+         }
+
+         return choice;
     }
 }
