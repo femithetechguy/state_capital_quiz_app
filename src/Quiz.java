@@ -120,6 +120,11 @@ public class Quiz {
                 askQuizQuestions(quiz, score, userInput, questionIndex, questions, scanner, isCorrect, answerCharacters, wrongAnswers, answerCapitals);
                 //userInput = scnner.next();a
             }
+            else if (userInput.equalsIgnoreCase("n")){
+
+                System.out.println("Thank you for playing our game....");}
+
+
             else{
             System.out.println("\'"+userInput+"\'" + " is not a valid response");
             System.out.println("Thank you for playing our game....");}
