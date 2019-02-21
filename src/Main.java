@@ -16,7 +16,7 @@ public class Main {
         for (int i = 0; i <= 49; i++) {
             list.add(i);
         }
-        Collections.shuffle(list);
+      // Collections.shuffle(list);
         System.out.println(list);
         Integer[] choice = list.toArray(new Integer[list.size()]);
         ArrayList<Character> answerCharacters = new ArrayList<>(); // all thecharacters that matched the right anser;
@@ -50,9 +50,11 @@ public class Main {
         int questionIndex = 0;
         boolean isCorrect = false;
         ArrayList<Integer> wrongAnswers = new ArrayList<>();
-        //System.out.println(isCorrect);
+
+
+
         System.out.println("----WELCOME------");
-        quiz.showTenQuestions(quiz, score, userInput, questionIndex, choice, questions, scanner, isCorrect, answerCharacters, wrongAnswers, answerCapitals);
+        quiz.askQuizQuestions(quiz, score, userInput, questionIndex, questions, scanner, isCorrect, answerCharacters, wrongAnswers, answerCapitals);
     }
     public static int[] generateRandom(int peak) {
         int[] choice = new int[peak];

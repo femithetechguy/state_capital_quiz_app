@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+
 public class Quiz {
     private ArrayList<String> questions;
     private ArrayList<String> answers;
@@ -10,11 +8,14 @@ public class Quiz {
     private String correctCapital; //correct answer for current question
     private char correctAnswerChar; //correct answer for current question
     private ArrayList<Character> answerCharacters;// all thecharacters that matched the right anser;
+    private ArrayList<Integer> numberList;
+
     public Quiz() {
         questions = new ArrayList<>();
         answers = new ArrayList<>();
         question_answer = new LinkedHashMap<>();
         answerCharacters = new ArrayList<>(); // all thecharacters that matched the right anser;
+        numberList = new ArrayList<>();
     }
     public String formQuestionSentence(String state, String a, String b, String c, String d, String e) {
         String questionString = "What is the capital of " + state + "?" + "\n" + "a) " + a + "\n" + "b)" +
@@ -63,9 +64,10 @@ public class Quiz {
         return answer;
     }
     public void printLastMsg(ArrayList<Integer> wrongAnswers, int score, ArrayList<String> answerCapitals) {
-        System.out.println("Here is your result");
+        System.out.println("=================================================================");
+        System.out.println("Here is/are the correct answers to the questions you got wrong.");
         // System.out.println("Score: " + ((score / 10) * 100) + "%");
-        System.out.println("Score: " + score);
+        System.out.println("You Scored: " + score + " points.");
         System.out.println(wrongAnswers);
         for (int i = 0; i < wrongAnswers.size(); i++) System.out.println(answerCapitals.get(wrongAnswers.get(i)));
     }
@@ -85,8 +87,9 @@ public class Quiz {
             answerCharacters.add(i, 'e');
         return answerCharacters;
     }
-    public void showTenQuestions(Quiz quiz, int score, String userInput, int questionIndex, Integer[] choice, ArrayList<String> questions, Scanner scanner, boolean isCorrect, ArrayList<Character> answerCharacters, ArrayList<Integer> wrongAnswers, ArrayList<String> answerCapitals) {
+    public void askQuizQuestions(Quiz quiz, int score, String userInput, int questionIndex,  ArrayList<String> questions, Scanner scanner, boolean isCorrect, ArrayList<Character> answerCharacters, ArrayList<Integer> wrongAnswers, ArrayList<String> answerCapitals) {
         do {
+            Integer[] choice = getChoices(50);
             System.out.println("Question " + (questionIndex + 1) + " Index No:" + choice[questionIndex]);
             System.out.println(questions.get(choice[questionIndex]));
             userInput = scanner.next();
@@ -107,14 +110,32 @@ public class Quiz {
         System.out.println(questionIndex);
         if (questionIndex % 10 == 0) {
             this.printLastMsg(wrongAnswers, score, answerCapitals);
-            System.out.println("You have been asked" + questionIndex + " questions? Please Type Y for yes or N for no.");
+            System.out.println("You have been asked " + questionIndex + " questions. Would you ike to continue? Please Type Y for yes or N for no.");
             userInput = scanner.next();
+            wrongAnswers.clear();
         }
         // if(userInput.equalsIgnoreCase("y"))
-        showTenQuestions(quiz, score, userInput, questionIndex, choice, questions, scanner, isCorrect, answerCharacters, wrongAnswers, answerCapitals);
+        askQuizQuestions(quiz, score, userInput, questionIndex,  questions, scanner, isCorrect, answerCharacters, wrongAnswers, answerCapitals);
         // else
         // System.out.println("Thank you for playing our game....");
-        if(questionIndex == 49)
-            questionIndex = 0;
+        if(questionIndex == 50)
+            System.out.println("ENd...");
+           // Collections.shuffle();
+           // questionIndex = 0;
+    }
+
+    public Integer[] getChoices(int size){
+        Integer[] choice = new Integer[size];
+
+
+        for (int i = 0; i <= 49; i++) {
+            numberList.add(i);
+        }
+        Collections.shuffle(numberList);
+
+
+        choice = numberList.toArray(new Integer[numberList.size()]);
+
+        return choice;
     }
 }
