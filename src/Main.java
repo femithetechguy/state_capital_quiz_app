@@ -12,13 +12,6 @@ public class Main {
         ArrayList<String> capitals = new ArrayList<>(); // all the capitals
         ArrayList<String> questions = new ArrayList<>();//all the questions
         ArrayList<String> answerCapitals = new ArrayList<>();
-        ArrayList<Integer> list = new ArrayList<>(11);
-        for (int i = 0; i <= 49; i++) {
-            list.add(i);
-        }
-      // Collections.shuffle(list);
-        System.out.println(list);
-        Integer[] choice = list.toArray(new Integer[list.size()]);
         ArrayList<Character> answerCharacters = new ArrayList<>(); // all thecharacters that matched the right anser;
         Map<String, String> question_and_answer;
         try {
@@ -31,11 +24,6 @@ public class Main {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        //System.out.println(seed);
-        //System.out.println("STATE" + "           ==        " +  "CAPITAL");
-        for (int i = 0; i < seed; i++) {
-            //System.out.println("State:" +  states.get(i) + ", Capital:" +  capitals.get(i));
         }
         answerCharacters = quiz.getCorrectAnswerChar(); //get all the correct answer
         for (int i = 0; i < seed; i++) {
@@ -50,9 +38,6 @@ public class Main {
         int questionIndex = 0;
         boolean isCorrect = false;
         ArrayList<Integer> wrongAnswers = new ArrayList<>();
-
-
-
         System.out.println("----WELCOME------");
         quiz.askQuizQuestions(quiz, score, userInput, questionIndex, questions, scanner, isCorrect, answerCharacters, wrongAnswers, answerCapitals);
     }
@@ -67,7 +52,6 @@ public class Main {
                 choice[i] = random.nextInt(peak);
                 if (choice[i] == choice[j]) {
                     choice[i] = random.nextInt(peak);
-                    ; //What's this! Another random number!
                 }
             }
         }
