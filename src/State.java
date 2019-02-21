@@ -1,6 +1,6 @@
-
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
+
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
@@ -19,8 +19,6 @@ public class State {
         this.expressions = new ArrayList<String>();
     }
 
-
-
     public ArrayList<String> getAllExpressionInstance(final String expression) throws Exception { //get any item you want from the xml file by specifying the head tag name for that item.
         expressions = new ArrayList<String>();
         final XPath xpath = XPathFactory.newInstance().newXPath();
@@ -36,4 +34,3 @@ public class State {
         return this.expressions;
     }
 }
-

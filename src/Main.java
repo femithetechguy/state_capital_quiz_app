@@ -1,21 +1,24 @@
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Quiz quiz = new Quiz();
         State st = new State();
         Player player = new Player();
         int seed = 0;
+        int score = 0;
         int maxQuestions;
         String question = "";
         ArrayList<String> states = new ArrayList<>();//all the states
         ArrayList<String> capitals = new ArrayList<>(); // all the capitals
         ArrayList<String> questions = new ArrayList<>();//all the questions
         ArrayList<String> answerCapitals = new ArrayList<>();
-        int [] choice = generateRandom(50);
-        ; // all the answers
+        ArrayList<Integer> list = new ArrayList<>(11);
+        for (int i = 0; i <= 49; i++) {
+            list.add(i);
+        }
+        Collections.shuffle(list);
+        System.out.println(list);
+        Integer[] choice = list.toArray(new Integer[list.size()]);
         ArrayList<Character> answerCharacters = new ArrayList<>(); // all thecharacters that matched the right anser;
         Map<String, String> question_and_answer;
         try {
@@ -41,45 +44,31 @@ public class Main {
             String correctCapital = quiz.getCorrectCapital();
             answerCapitals.add(correctCapital);
         }
-
-        
         Scanner scanner = new Scanner(System.in);
-        maxQuestions = 10;
+        maxQuestions = 9;
         String userInput = "";
         int questionIndex = 0;
-        boolean isCorrect;
+        boolean isCorrect = false;
+        ArrayList<Integer> wrongAnswers = new ArrayList<>();
+        //System.out.println(isCorrect);
         System.out.println("----WELCOME------");
-        for (int i = 0; i < choice.length; i++)
-        {
-            //System.out.println(generateRandom(50));
-           // System.out.println(choice[i]);
-        }
-        do {
-            System.out.println("Question " + (questionIndex + 1));
-            System.out.println(questions.get(choice[questionIndex]));
-
-            userInput = scanner.next();
-           // System.out.println(answerCharacters.get(choice[questionIndex]));
-            questionIndex++;
-               
-        }
-        while(questionIndex < 10);
-        if(userInput.equalsIgnoreCase("y")){
-            
-        }
-        
-      
+        quiz.showTenQuestions(quiz, score, userInput, questionIndex, choice, questions, scanner, isCorrect, answerCharacters, wrongAnswers, answerCapitals);
     }
-    public static int[] generateRandom(int peak){
-        int [] choice = new int[peak];
+    public static int[] generateRandom(int peak) {
+        int[] choice = new int[peak];
         Random random = new Random();
         //obtain from 0 - peak
-         ;
-         for (int i =0; i < peak; i++){
-             int number = random.nextInt(peak);
-             choice[i] = number;
-         }
-
-         return choice;
+        ;
+        for (int i = 0; i < peak; i++) {
+            //c
+            for (int j = 0; j < i; j++) {
+                choice[i] = random.nextInt(peak);
+                if (choice[i] == choice[j]) {
+                    choice[i] = random.nextInt(peak);
+                    ; //What's this! Another random number!
+                }
+            }
+        }
+        return choice;
     }
 }
